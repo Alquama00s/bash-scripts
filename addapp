@@ -1,0 +1,20 @@
+#!/bin/bash
+cd /usr/share/applications
+printf "Enter application name\n"
+read APP
+printf "Enter application path\n"
+read APPPATH 
+printf "Enter application icon path\n"
+read APPICONPATH 
+printf "Enter colon separated app search keywors (eg : android;studio;android studio)\n"
+read KEYWORDS 
+echo "[Desktop Entry]">userdef-${APP// /-}.desktop
+echo "Name=${APP}">>userdef-${APP// /-}.desktop
+echo "Encoding=UTF-8">>userdef-${APP// /-}.desktop
+echo "Exec=${APPPATH}">>userdef-${APP// /-}.desktop
+echo "Icon=${APPICONPATH}">>userdef-${APP// /-}.desktop
+echo "StartupNotify=false">>userdef-${APP// /-}.desktop
+echo "Terminal=false">>userdef-${APP// /-}.desktop
+echo "Type=Application">>userdef-${APP// /-}.desktop
+echo "Keywords=${KEYWORDS};${APP}">>userdef-${APP// /-}.desktop
+printf "${APP} added successfully!"
